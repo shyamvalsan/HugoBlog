@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Shyam Valsan</title>
+    <link>/https:/shyamvalsan.com/tags/</link>
+    <description>Recent content in Tags on Shyam Valsan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 01 Nov 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/https:/shyamvalsan.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Homeautomation</title>
+      <link>/https:/shyamvalsan.com/tags/homeautomation/</link>
+      <pubDate>Wed, 01 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/https:/shyamvalsan.com/tags/homeautomation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Iot</title>
+      <link>/https:/shyamvalsan.com/tags/iot/</link>
+      <pubDate>Wed, 01 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/https:/shyamvalsan.com/tags/iot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Raspberrypi</title>
+      <link>/https:/shyamvalsan.com/tags/raspberrypi/</link>
+      <pubDate>Wed, 01 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/https:/shyamvalsan.com/tags/raspberrypi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Smart Light</title>
+      <link>/https:/shyamvalsan.com/tags/smart-light/</link>
+      <pubDate>Wed, 01 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/https:/shyamvalsan.com/tags/smart-light/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Technology</title>
+      <link>/https:/shyamvalsan.com/tags/technology/</link>
+      <pubDate>Wed, 01 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/https:/shyamvalsan.com/tags/technology/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wifi</title>
+      <link>/https:/shyamvalsan.com/tags/wifi/</link>
+      <pubDate>Wed, 01 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/https:/shyamvalsan.com/tags/wifi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Yeelight</title>
+      <link>/https:/shyamvalsan.com/tags/yeelight/</link>
+      <pubDate>Wed, 01 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/https:/shyamvalsan.com/tags/yeelight/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
