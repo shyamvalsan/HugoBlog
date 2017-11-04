@@ -27,7 +27,7 @@ So without further ado, here are the step by step instructions I followed to cre
 I bought this domain (shyamvalsan.com) from GoDaddy for just 99 Rs for the first year. And this is the **only** money I've spent in the entire process of creating this website.  
 
 2. **Download and install R studio**  
-I didn't really need to do this, as I had these things installed already. If you're using Ubuntu, here's a script which will do this step for you.  
+I didn't really need to do this, as I had these things installed already. If you're using Ubuntu, [here's a helpful shell script](https://github.com/shyamvalsan/HugoBlog/blob/master/data/install_r.sh) which will do this step for you. [Link to source of script](https://github.com/shyamvalsan/HugoBlog/blob/master/data/install_r.sh).  
 
 3. **Install blogdown**  
 ```
