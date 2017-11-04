@@ -1,8 +1,8 @@
 ---
-title: Let there be light!
+title: Let there be light! - RaspberryPi controller for Yeelight smart bulb
 author: Shyam Valsan
 date: '2017-11-01'
-slug: YeelightWifiRaspberryPi
+slug: YeelightWifiRaspberryPiController
 categories:
   - IoT
 tags:
