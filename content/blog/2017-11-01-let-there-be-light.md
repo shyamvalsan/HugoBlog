@@ -59,6 +59,12 @@ where command can have one of the following values:
     notify-red - notification in red color
 ```
 
+## Demo
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=EqDKSsEf1HE
+" target="_blank"><img src="http://img.youtube.com/vi/EqDKSsEf1HE/0.jpg" 
+alt="Demo video of Yeelight smart light controller on Raspberry Pi" width="240" height="180" border="10" /></a>
+
+
 ## Requirements
 - [Yeelight wifi](http://www.ebay.in/itm/Xiaomi-Yeelight-White-Color-LED-Smart-Bulb-8W-WiFi-Control-Adjustable-Brightness-/152609584877?hash=item23883d76ed)
 - [E27 adapter for Indian bulb sockets](http://www.ebay.in/itm/B22-to-E27-LED-Halogen-CFL-Light-Base-Bulb-Lamp-Adapter-Converter-Holder-Socket-/132243823330?hash=item1eca589ae2)
