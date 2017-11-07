@@ -62,10 +62,7 @@ where command can have one of the following values:
 ```
 
 ## Demo
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=EqDKSsEf1HE
-" target="_blank"><img src="http://img.youtube.com/vi/EqDKSsEf1HE/0.jpg" 
-alt="Demo video of Yeelight smart light controller on Raspberry Pi" width="240" height="180" border="10" /></a>
-
+[![Yeelight smart light controller on Raspberry Pi](https://img.youtube.com/vi/EqDKSsEf1HE/0.jpg)](https://www.youtube.com/watch?v=EqDKSsEf1HE)
 
 ## Requirements
 - [Yeelight wifi](http://www.ebay.in/itm/Xiaomi-Yeelight-White-Color-LED-Smart-Bulb-8W-WiFi-Control-Adjustable-Brightness-/152609584877?hash=item23883d76ed)
