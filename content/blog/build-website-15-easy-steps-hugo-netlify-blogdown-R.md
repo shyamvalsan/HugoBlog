@@ -1,5 +1,5 @@
 ---
-title: Build a website in 15 easy steps - with Hugo, Netlify and Blogdown
+title: Build a website in 15 easy steps
 author: Shyam Valsan
 date: '2017-11-04'
 slug: build-website-15-easy-steps-hugo-netlify-blogdown-R
