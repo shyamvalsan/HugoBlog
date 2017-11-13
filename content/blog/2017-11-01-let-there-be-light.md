@@ -41,9 +41,11 @@ See the [git repo](https://github.com/shyamvalsan/YeelightController) for detail
 ## Step by step instructions
 	1. Plug in the yeelight smart bulb
 	2. Turn on the light switch
-	3. Run ./light-configure.sh
-	4. Wait till light-configure exits, confirm that it ended successfully. If not try repeating steps 2 and 3
+	3. Run ./configure-light.sh (if you already know the IP address of your smart bulb then write it to ip.list and skip to step 5)
+	4. Wait till configure-light exits, confirm that it ended successfully. If not try repeating steps 2 and 3
 	5. Run ./light.sh -h for options on how to control the bulb
+	
+	Note: Try running nmap (sudo nmap -sP 192.168.1.*) to ping all IPs in your subnet before running configure-light.sh 
 
 ```shell
 light.sh [command] <color> -- utility to control Yeelight smart bulb over wifi
@@ -58,6 +60,9 @@ where command can have one of the following values:
     notify-green - notification in green color
     notify-red - notification in red color
 ```
+
+## Demo
+[![Yeelight smart light controller on Raspberry Pi](https://img.youtube.com/vi/EqDKSsEf1HE/0.jpg)](https://www.youtube.com/watch?v=EqDKSsEf1HE)
 
 ## Requirements
 - [Yeelight wifi](http://www.ebay.in/itm/Xiaomi-Yeelight-White-Color-LED-Smart-Bulb-8W-WiFi-Control-Adjustable-Brightness-/152609584877?hash=item23883d76ed)
