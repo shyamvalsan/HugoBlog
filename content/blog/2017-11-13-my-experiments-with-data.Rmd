@@ -11,7 +11,7 @@ tags:
   - R
   - Technology
 ---
-As far long back as I can remember, I've always been curious about things. My parents still like to reminisce about the old days when I was a little walking, talking questionnaire.  As I've grown older I've tried to cultivate a healthy sense of scepticism, while continuing to nurture the curiosity. I think that for a mind to flourish it needs to hit the right balance between the two. Curiosity without scepticism makes you gullible and scepticism without curiosity makes you jaded. 
+As far long back as I can remember, I've always been curious about things. My parents still like to reminisce about the old days when I was a little walking, talking questionnaire.  As I've grown older I've tried to cultivate a healthy sense of scepticism, while continuing to nurture the curiosity. I think that for a mind to flourish it needs to hit the right balance between the two. Curiosity without scepticism makes you gullible and scepticism without curiosity makes you cynical.
 
 Mining data to uncover it's secrets is great fun, and you get a little kick out of inferring information which isn't apparent to others observing the same dataset. A little over a year ago while traveling for work in Zurich I was introduced to R by a colleague and I was intrigued, after deciding to learn it so I can try to optimize and add features to some of my existing scripts I soon found that what I had at my command was power tools compared to the crude stone tools I had used before. Now, to be clear, I'm no statistician or data scientist or R guru - but that's the best part about R, it's so simple to use, with so many powerful packages already available - that you don't have to be any of those things to have fun with it.
 
