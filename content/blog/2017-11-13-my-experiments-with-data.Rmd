@@ -5,10 +5,9 @@ date: '2017-11-13'
 slug: my-experiments-with-data
 categories:
   - data science
-  - R
+  - data exploration
 tags:
   - data science
-  - R
   - Technology
 ---
 As far long back as I can remember, I've always been curious about things. My parents still like to reminisce about the old days when I was a little walking, talking questionnaire.  As I've grown older I've tried to cultivate a healthy sense of scepticism, while continuing to nurture the curiosity. I think that for a mind to flourish it needs to hit the right balance between the two. Curiosity without scepticism makes you gullible and scepticism without curiosity makes you cynical.

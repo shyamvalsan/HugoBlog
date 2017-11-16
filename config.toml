@@ -41,7 +41,7 @@ identifier             = "contact"
 url                    = "/contact/"
 
 [params]
-latestpostscount       = 3                             # how many posts to display on the home page
+latestpostscount       = 5                             # how many posts to display on the home page
 i18n_flags             = false                         # whether to display small country flags for available translations
 author                 = "Shyam Valsan"
 cachebuster            = true                          # add the current unix timestamp in query string for cache busting css assets
@@ -73,4 +73,19 @@ avatar                 = "img/profile.png" # path to image in static dir e.g img
 
 # The following are DEPRECATED.
 gatracker              = "XYZ" # use googleAnalytics instead
-initials               = "ad"  # displayed on single post page; deprecated in v0.3.0.
+initials               = "sv"  # displayed on single post page; deprecated in v0.3.0.
+
+# new
+
+[outputs]
+home = [ "HTML", "RSS", "RFEED"]
+
+[outputFormats]
+[outputFormats.RSS]
+mediatype = "application/rss"
+baseName = "feed"
+
+[outputFormats.RFEED]
+mediatype = "application/rss"
+baseName = "feed_r"
+noUgly = true
