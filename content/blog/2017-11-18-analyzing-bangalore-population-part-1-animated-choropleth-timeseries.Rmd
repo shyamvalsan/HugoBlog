@@ -1,0 +1,48 @@
+---
+title: Analyzing Bangalore - Population (Part 1 - Choropleth)
+author: Shyam Valsan
+date: '2017-11-18'
+slug: analyzing-bangalore-population-animated-choropleth-timeseries
+categories:
+  - data exploration
+  - R
+tags:
+  - R
+  - Bangalore
+  - bengaluru
+  - choropleth
+  - time series
+  - gif
+  - population
+---
+
+This is the start of a series of articles analyzing data specific to Bangalore (or Bengaluru as it's now called). I plan to look at different facets of the city in detail, starting with population. We will visualize population related data in four different representations, of which this is Part 1, each of which I hope will provide unique insights into the city's past, present and future. 
+
+A word about the data sources before we get started; my primary source of information came directly from the website of BBMP (Bruhat Bengaluru Mahanagara Palike, the administrative body responsible for civic and infrastructural assets of Bangalore). One of my internet search rabbit holes landed me on this pdf of a table somewhere inside the BBMP website, and it contained some fascinating data for each of the 198 BBMP wards (locations within Bangalore city), this is what got me started down this road.
+
+All the visualization and data analysis was done using R, if you're interested in the details scroll down to the end for an explanation on how the code works. 
+
+![Choropleth Time Series](images/blr_population.gif)
+
+This is an animated choropleth time series map of Bangalore, a choropleth map is a thematic map in which areas are shaded in proportion to the measurement of the statistical variable being displayed on the map - in this case that variable is population. And the animation shows the change in population over time from 2001 to 2021. The population numbers used for 2001 and 2011 are from the national census data, the population for the rest of the years has been interpolated using the spline function in R.
+
+Let's talk about some of the key takeaways that this visualization offers, they key insights we were able to mine from the data.
+
+**Key insights**
+
+ - Population has grown rapidly the last couple of decades
+ - The bulk of the population growth happened in the outskirts (or what used to be the outskirts) of the city, the central areas didn't really grow much at all. This likely indicates that immigrants settled down in areas which weren't traditionaly places that Bangaloreans lived in.
+ - Horamavu, Bellandur and Begur are now the big population centers of the city and things are expected to stay that way for some time to come. 
+ 
+The next census, scheduled for 2021 would be interesting data, and would help measure the accuracy of my predictions.
+
+**How does the code work? **
+
+
+
+
+**Data sources**
+
+[BBMP ward data](http://bbmp.gov.in/documents/10180/460906/BBMPR_ward_master_BBMP+Restructuring+03-08-2015.pdf/)
+
+[United Nations Top 30 Urban Agglomerations - Population and Growth Rate](https://esa.un.org/Unpd/Wup/CD-ROM/)
