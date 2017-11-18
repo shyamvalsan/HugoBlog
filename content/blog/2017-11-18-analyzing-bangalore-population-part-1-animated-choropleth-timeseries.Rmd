@@ -22,7 +22,7 @@ A word about the data sources before we get started; my primary source of inform
 
 All the visualization and data analysis was done using R, if you're interested in the details scroll down to the end for an explanation on how the code works. 
 
-![Choropleth Time Series](images/blr_population.gif)
+<img src="https://i.imgur.com/9bHbXbh.gif" width="800" height="600" />
 
 This is an animated choropleth time series map of Bangalore, a choropleth map is a thematic map in which areas are shaded in proportion to the measurement of the statistical variable being displayed on the map - in this case that variable is population. And the animation shows the change in population over time from 2001 to 2021. The population numbers used for 2001 and 2011 are from the national census data, the population for the rest of the years has been interpolated using the spline function in R.
 
@@ -38,11 +38,88 @@ The next census, scheduled for 2021 would be interesting data, and would help me
 
 **How does the code work? **
 
+First we include all the libraries that we'll be using, rgdal to read the kml file for Bangalore wards and leaflet to do the actual choropleth plotting. If we just wanted to do an interactive choropleth that would have been sufficient, but here we're trying to create an animated time series, so we'll be using htmlwidgets and webshot libraries as well.
+
+```r
+library(rgdal)
+library(leaflet)
+library(htmlwidgets)
+library(webshot)
+```
+
+Next up, we read the kml using readOGR and also read the BBMP ward data (which I have done some pre-processing on, I used Tabula to extract the data from the BBMP pdf linked at the bottom of the article and had to clean it up a little). We also do some basic post processing to remove special characters from numeric data.
+
+```r
+blr <- readOGR("data", "BBMP-Wards")
+blr_wards <- read.csv("data/blr_wards.csv", sep=",", dec=".")
+
+# Converting special characters to numeric
+blr_wards[,18] <- as.numeric(gsub(",", "", blr_wards[,18]))
+blr_wards[,19] <- as.numeric(gsub("%", "", blr_wards[,19]))
+```
+
+The BBMP data contains the population of each ward in 2011 and a decadal growth rate which allows us to calculate the population of each ward in 2001, I use splinefun to interpolate the population of years 2002 to 2010 and also the predict the population for the years 2012 up to 2021.
+
+```r
+# Use splinefun to interpolate and extrapolate the population of each ward from 2001 to 2021 
+# As reference we use the population from 2011 and the decadal growth rate of each ward from 2001-2011
+# Comparing the results of this formula to the United Nations estimates show that they align very closely
+for (ward in 1:length(blr_wards[,3])) {
+  range <- c(2001:2011)
+  for (j in 1:21) {
+    population <- seq(as.integer((100*blr_wards[ward,3])/(blr_wards[ward,19] + 100)),blr_wards[ward,3], length.out=11)
+    func = splinefun(x=range, y=population, method="fmm",  ties = mean)
+    blr_wards[ward,(j+19)] <- as.integer(func(seq(2000+j,2000+j,1)))
+    names(blr_wards)[j+19] <- paste0("pop",2000+j,"")
+  }  
+}
+```
+The final step here is to plot the leaflet chart, which has layers to add the map, polygons depicting the wards, the legend and other features for interactive operation like popups which we won't be using in our animated version. I couldn't find a straightforward way to create an animated gif in R so I'm looping through the years one by one, creating a snapshot of the html and saving it as png. Once the loop is done I use the convert function (from ImageMagick) to convert the group of png image files into one gif and delete all the png and html files that were created during the process.
+
+```r
+colorrange <- c(15000,30000,50000,80000,125000,163000)
+palettePopulation <- colorNumeric("Reds",domain = colorrange)
+
+for (year in 2001:2021) {
+  colname <- paste0("pop",year,"")
+  labelname <- paste("Bangalore population",year)
+  popupPopulation <- paste0(blr_wards$WardName,":",blr_wards[,colname])
+  name <- paste("pop", year, sep="")
+  html_name <- paste(name, ".html", sep="")
+  png_name <- paste(name, ".png", sep="")
+  png_absolute_name <- paste("images/", png_name, sep="")
+  
+  img <- leaflet() %>% 
+    addProviderTiles("Esri.WorldGrayCanvas", 
+                     options = tileOptions(minZoom = 10, maxZoom = 16)) %>%
+    addPolygons(data = blr, fillColor = ~palettePopulation(blr_wards[,colname]),
+                fillOpacity = 0.6, color = "darkgrey", weight = 1.5, 
+                popup = popupPopulation, group = "Population") %>%
+    addLegend(position = 'topright', 
+              pal = palettePopulation,
+              values = colorrange,
+              opacity = 0.6,    
+              title = "Population") %>%
+    addLabelOnlyMarkers(
+      lng = 77.47, lat = 13.18,
+      label = labelname,
+      labelOptions = labelOptions(noHide = T,textsize = "20px"))
+  
+  saveWidget(img, html_name, selfcontained = FALSE)
+  webshot(html_name, file=png_absolute_name, cliprect = 'viewport')
+}
+
+system("rm -rf pop*.html")
+system("rm -rf pop*_files")
+system("convert -delay 50 images/pop*.png -loop 0 images/blr_population.gif")
+```
 
 
 
 **Data sources**
 
 [BBMP ward data](http://bbmp.gov.in/documents/10180/460906/BBMPR_ward_master_BBMP+Restructuring+03-08-2015.pdf/)
-
 [United Nations Top 30 Urban Agglomerations - Population and Growth Rate](https://esa.un.org/Unpd/Wup/CD-ROM/)
+
+**References**
+[http://journocode.com](http://journocode.com/2016/01/28/your-first-choropleth-map/)
