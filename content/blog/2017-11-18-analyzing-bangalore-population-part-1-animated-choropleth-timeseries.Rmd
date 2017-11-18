@@ -123,4 +123,4 @@ system("convert -delay 50 images/pop*.png -loop 0 images/blr_population.gif")
 
 [http://journocode.com](http://journocode.com/2016/01/28/your-first-choropleth-map/)
 
-*Suggestions and corrections are always welcome.*
+*Suggestions and corrections are always welcome, please use the comments section.*
