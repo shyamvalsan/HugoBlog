@@ -30,7 +30,7 @@ tags:
 <li>The bulk of the population growth happened in the outskirts (or what used to be the outskirts) of the city, the central areas didn’t really grow much at all. This likely indicates that immigrants settled down in areas which weren’t traditionaly places that Bangaloreans lived in.</li>
 <li>Horamavu, Bellandur and Begur are now the big population centers of the city and things are expected to stay that way for some time to come.</li>
 </ul>
-<p>The next census, scheduled for 2021 would be interesting data, and would help measure the accuracy of my predictions.</p>
+<p>The next census, scheduled for 2021 would be interesting data, and would help measure the accuracy of my predictions. I wonder if town planners and civic authorities really consider such forecasts when making decisions, they obviously have the data and probably have all the information they need to make the right decisions. But seeing as I do, for example, that we do not have any metro rail connectivity to any of the most populous locations in Bangalore. Namma metro anachronistically continues to link places that were the centers of growth two decades ago, while ignoring the locations that have the most people living in them.</p>
 <p><strong>How does the code work? </strong></p>
 <p>First we include all the libraries that we’ll be using, rgdal to read the kml file for Bangalore wards and leaflet to do the actual choropleth plotting. If we just wanted to do an interactive choropleth that would have been sufficient, but here we’re trying to create an animated time series, so we’ll be using htmlwidgets and webshot libraries as well.</p>
 <pre class="r"><code>library(rgdal)
@@ -97,3 +97,4 @@ system(&quot;convert -delay 50 images/pop*.png -loop 0 images/blr_population.gif
 <p><a href="http://bbmp.gov.in/documents/10180/460906/BBMPR_ward_master_BBMP+Restructuring+03-08-2015.pdf/">BBMP ward data</a> <a href="https://esa.un.org/Unpd/Wup/CD-ROM/">United Nations Top 30 Urban Agglomerations - Population and Growth Rate</a></p>
 <p><strong>References</strong></p>
 <p><a href="http://journocode.com/2016/01/28/your-first-choropleth-map/">http://journocode.com</a></p>
+<p><em>Suggestions and corrections are always welcome.</em></p>
