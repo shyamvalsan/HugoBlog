@@ -114,12 +114,11 @@ system("rm -rf pop*_files")
 system("convert -delay 50 images/pop*.png -loop 0 images/blr_population.gif")
 ```
 
-
-
 **Data sources**
 
 [BBMP ward data](http://bbmp.gov.in/documents/10180/460906/BBMPR_ward_master_BBMP+Restructuring+03-08-2015.pdf/)
 [United Nations Top 30 Urban Agglomerations - Population and Growth Rate](https://esa.un.org/Unpd/Wup/CD-ROM/)
 
 **References**
+
 [http://journocode.com](http://journocode.com/2016/01/28/your-first-choropleth-map/)
