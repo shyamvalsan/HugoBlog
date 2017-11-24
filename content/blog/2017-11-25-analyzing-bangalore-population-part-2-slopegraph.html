@@ -1,0 +1,91 @@
+---
+title: Analyzing Bangalore - Population (Part 2 - Slopegraph)
+author: Shyam Valsan
+date: '2017-11-25'
+slug: analyzing-bangalore-population-slopegraph
+categories:
+  - blog
+  - data exploration
+  - data science
+  - R
+tags:
+  - Bangalore
+  - bengaluru
+  - R
+  - population
+  - slopegraph
+---
+
+
+
+<p>This is part 2 of of the population analysis of Bangalore using R. In <a href="https://www.shyamvalsan.com/blog/analyzing-bangalore-population-animated-choropleth-timeseries/">part 1 we explored how to make animated choropleth on timeseries populataion data</a>. While the previous visualization we did was geographical in nature, this time we’re going to visualize Bangalore population data using a slopegraph. Slopegraphs help paint a before and after story by providing insights into ranking, magnitude and changes over time.</p>
+<p>The idea of this particular slope graph is to show how the ranking of the selected wards changed drastically between 2001 and 2011 and to predict the change between 2011 and 2021. The list of wards I have picked are a mix of the most populous wards in 2001 and 2011 and also a general sampling of well-known localities in Bangalore.</p>
+<p><strong>Key insights</strong></p>
+<ul>
+<li>Between 2001 and 2011 the geo-demographics of the city changed drastically</li>
+<li>Between 2011 and 2021 this sort of change is largely absent and consolidation of the change from the previous decade is prevalent</li>
+<li>Bellandur and Begur, were among the least populated wards in 2001 and just exploded in to the top 3 in ten years and are expected to stay there</li>
+</ul>
+<p><strong>How does the code work? </strong></p>
+<pre class="r"><code>library(RColorBrewer)
+library(scales)
+
+pop &lt;- read.csv(&quot;data/ward_popt.csv&quot;)
+plot(c(0,1),c(0,1),type=&#39;n&#39;,axes=F,xlab=&#39;&#39;,ylab=&#39;&#39;) 
+
+pop[,1]&lt;-as.character(pop[,1]) 
+listOfWards&lt;-ncol(pop)-1
+ranking&lt;-2:ncol(pop)
+pop[,ranking]&lt;-rescale(as.matrix(pop[,ranking]),c(5,25))  #rescale so line sizes make sense
+
+#reorder column ranking 
+first.ord&lt;-order(pop[1,ranking],decreasing=T)
+pop[,ranking]&lt;-pop[,ranking][,first.ord]
+names(pop)[ranking]&lt;-names(pop)[ranking][first.ord]
+
+#list population of wards in decreasing order for each date
+columns&lt;-vector(&#39;list&#39;,nrow(pop))
+names(columns)&lt;-pop[,1]
+for(val in 1:nrow(pop)){
+  tmp&lt;-t(pop[val,ranking])
+  tmp&lt;-tmp[order(tmp,decreasing=T),,drop=F]
+  columns[[val]]&lt;-tmp
+}
+
+# x and y co-ordinates 
+x_plot&lt;-rep(c(0.1,0.5,0.9),each=listOfWards)
+x_plot&lt;-split(x_plot,x_plot)
+y_plot&lt;-rev(seq(0,0.9,length=listOfWards+1))
+
+# get line colors
+line_colors&lt;-alpha(colorRampPalette(c(&quot;red&quot;,&quot;yellow&quot;,&quot;green&quot;))(listOfWards),0.7)
+
+for(val in 1:(length(columns)-1)){
+  temp_plot&lt;-columns[c(val,val+1)]
+  x_tmp&lt;-x_plot[c(val,val+1)]
+  rowtxt &lt;- row.names(temp_plot[[1]])
+  text(x_tmp[[1]],y_plot,rowtxt)
+  
+  if(val == length(columns)-1){
+    rowtxt &lt;- row.names(temp_plot[[2]])
+    text(x_tmp[[2]],y_plot,rowtxt)
+    heading&lt;-substitute(bold(x),list(x=names(temp_plot)[2]))
+    text(unique(x_tmp[[2]]),y.locs[2],heading)
+  } 
+  
+  heading&lt;-substitute(bold(x),list(x=names(temp_plot)[1]))  
+  text(unique(x_tmp[[1]]),y.locs[2],heading)
+  
+  sort_names&lt;-match(row.names(temp_plot[[1]]),row.names(temp_plot[[2]]))
+  line_width&lt;-temp_plot[[1]][,1]
+  
+  segments(x_tmp[[1]], y_plot, x_tmp[[2]], y_plot[sort_names], col=line_colors, lwd=line_width)
+  
+  sort_colors&lt;-match(row.names(temp_plot[[2]]),row.names(temp_plot[[1]]))
+  line_colors&lt;-line_colors[sort_colors]
+}</code></pre>
+<p><strong>Data sources</strong></p>
+<p><a href="http://bbmp.gov.in/documents/10180/460906/BBMPR_ward_master_BBMP+Restructuring+03-08-2015.pdf/">BBMP ward data</a></p>
+<p><strong>References</strong></p>
+<p><a href="http://journocode.com/2016/01/28/your-first-choropleth-map/">http://journocode.com</a></p>
+<p><em>Suggestions and corrections are always welcome, please use the comments section.</em></p>

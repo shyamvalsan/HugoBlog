@@ -1,0 +1,50 @@
+---
+title: Analyzing Bangalore - Population (Part 3 - Smoothed Line Graph)
+author: Shyam Valsan
+date: '2017-11-27'
+slug: analyzing-bangalore-population-smoothed-line-graph
+categories:
+  - blog
+  - data exploration
+  - data science
+  - R
+tags:
+  - Bangalore
+  - bengaluru
+  - population
+  - R
+  - line graph
+  - growth rate
+---
+
+
+
+<p>This is a simple smoothed line chart of population growth rate over time, and yet it is very revealing.</p>
+<pre class="r"><code>library(ggplot2)
+blr_growth_rate &lt;- read.csv(&quot;BangaloreGrowthRate.csv&quot;)
+
+ggplot(blr_growth_rate,aes(x = Time,y = GrowthRate )) +
+  geom_point(aes(colour = GrowthRate)) +
+  scale_colour_gradient2(low = &quot;blue&quot;, mid = &quot;green&quot; , high = &quot;red&quot;, midpoint = 3.5) + 
+  geom_smooth(colour = &quot;blue&quot;,size = 0.9) +
+  scale_y_continuous(limits = c(1,7), breaks = seq(1,7,1)) +
+  scale_x_continuous(limits = c(1955,2030), breaks = seq(1960,2030,10)) +
+  ggtitle (&quot;Average Annual Rate of Change of Population in Bangalore&quot;) +
+  xlab(&quot;Year&quot;) +  ylab (&quot;Average Growth Rate %&quot;)</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39;</code></pre>
+<p><img src="/blog/2017-11-27-analyzing-bangalore-population-part-3-smoothed-line-graph_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p><em>Key takeaways</em></p>
+<ul>
+<li>Population growth peaked in the late 1970s, reaching its zenith around 1980</li>
+<li>After which there was a downward trend for the next 20 years, before another spike, a smaller one this time</li>
+<li>This second spike in population growth was between the years 2000 and 2010 peaking around 2009</li>
+<li>The downward trend which started around 2010 is expected to continue till 2030 and beyond until an event that comes along to change the geo-socio-economic dynamic of the city</li>
+</ul>
+<p>Let’s examine the two periods of rapid growth in population which Bangalore has experienced in the last 70 years.</p>
+<ul>
+<li>Population growth rate grew continuously post-independence, peaking between 1975 and 1980, with immigrants flocking to the city from other parts of Karnataka and outside the state.</li>
+<li>Manufacturing plants setup around the city also attracted a large floating population to the city during this period</li>
+<li>The second period of growth appears to be strongly correlated to the IT boom, as software companies mushroomed a whole eco system developed with construction, retail, small businesses, restaurants and almost all sections of the society experiencing an influx in people from all over India.</li>
+</ul>
+<p><strong>Data sources</strong></p>
+<p><a href="https://esa.un.org/Unpd/Wup/CD-ROM/">United Nations Top 30 Urban Agglomerations - Population and Growth Rate</a></p>

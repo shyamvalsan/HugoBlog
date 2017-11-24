@@ -1,0 +1,75 @@
+---
+title: Analyzing Bangalore - Population (Part 4 - Bubblecharts)
+author: Shyam Valsan
+date: '2017-11-28'
+slug: analyzing-bangalore-population-bubblecharts
+categories:
+  - blog
+  - data exploration
+  - data science
+  - R
+tags:
+  - Bangalore
+  - bengaluru
+  - growth rate
+  - population
+  - R
+  - bubble
+  - chart
+  - graph
+---
+
+The first time I saw bubble charts of this sort was in Hans Rosling's Ted talk about the health and wealth of nations, and it **blew my mind**. I will probably try to get this chart to work as a time series at some later point in time and spend some more time mining this data for information. For now, it is a static chart and the sizes of the bubbles indicate the total population, the horizontal axis is the population growth rate and the vertical axis is the sex ratio (ratio of females to males in the population). The bubbles are color coded according to which continent they come from, except for Bangalore which has been marked a special color for easy identification. It's crazy how a single image can tell you so much about the world we live in.
+
+```{r}
+suppressPackageStartupMessages(library(plotly))
+
+data <- read.csv("top30_pop.csv")
+
+data <- data[order(data$continent, data$city),]
+slope <- 2.666051223553066e-05
+data$size <- sqrt(data$pop * slope)
+colors <- c('#4AC6B7', '#1972A4', '#965F8A', '#FF7070', '#C61951')
+
+p1 <- plot_ly(data, x = ~growthrate, y = ~sexratio, color = ~continent, size = ~size, colors = colors,
+             type = 'scatter', mode = 'markers', sizes = c(min(data$size), max(data$size)),
+             marker = list(symbol = 'circle', sizemode = 'radius',
+                           line = list(width = 2, color = '#FFFFFF')),
+             text = ~paste(city, '<br>Population:', pop, '<br>Growth Rate:', growthrate,'<br>Sex Ratio:', sexratio)) %>%
+  layout(title = 'Male-Female Ratio vs Population Growth Rate - Top 30 Urban Agglomerations - 2015',
+         xaxis = list(title = 'Growth Rate',
+                      gridcolor = 'rgb(255, 255, 255)',
+                      range = c(0, 4.5),
+                      zerolinewidth = 1,
+                      ticklen = 1,
+                      gridwidth = 2),
+         yaxis = list(title = 'Males per thousand Females',
+                      gridcolor = 'rgb(255, 255, 255)',
+                      range = c(800, 1200),
+                      zerolinewidth = 1,
+                      ticklen = 5,
+                      gridwith = 2),
+         paper_bgcolor = 'rgb(243, 243, 243)',
+         plot_bgcolor = 'rgb(243, 243, 243)')
+p1
+
+```
+
+**Key takeaways**
+
+ - Population growth is highest in the great African cities of Lagos and Kinshasa
+
+ - Africa is followed by a long list of large Asian cities, and it is in this huddle that Bangalore finds itself
+
+ - The largest city of them all is of course the megalopolis of Tokyo, where the growth rate has almost slowed to a standstill but it will continue to be the largest city in the world for at least another decade with Delhi hot on its heels (Having visited both cities, I really feel that Delhi has a lot to learn from Tokyo, and this is one case where our usual excuse about over population being the root of all our problems doesn’t make sense anymore)
+
+ - Europe, South and North America are all on the low side when it comes to population growth rate
+
+ - The sex ratio comparison is very interesting, with Moscow being the standout outlier with 1162 females to every 1000 males. This was a surprise to me, and I am not sure what the reason behind it is. I've read articles which claim that an early death for males due to a harsher lifestyle is what accounts for it, but I am not completely convinced.
+
+ - China and India form the other end of the pendulum with mega cities where the men outnumber the women by the millions. Patriarchal societies are the norm in the two most populous countries in the world, and male children live a more privileged life in most households across the country. Female infanticide has also been a real problem which the authorities and social workers have been working to remedy (with some success in recent years) in India.
+
+
+**Data sources**
+
+[United Nations Top 30 Urban Agglomerations - Population and Growth Rate](https://esa.un.org/Unpd/Wup/CD-ROM/)
