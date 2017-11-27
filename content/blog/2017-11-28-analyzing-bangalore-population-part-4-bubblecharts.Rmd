@@ -19,6 +19,8 @@ tags:
   - graph
 ---
 
+This is the final part of the Analyzing Bangalore - Population series. You might find [Part 1](https://shyamvalsan.com/blog/analyzing-bangalore-population-animated-choropleth-timeseries/), [Part 2](https://shyamvalsan.com/blog/analyzing-bangalore-population-slopegraph/) and [Part 3](https://shyamvalsan.com/blog/analyzing-bangalore-population-smoothed-line-graph/) interesting as well.
+
 The first time I saw bubble charts of this sort was in [Hans Rosling's Ted talk](https://www.youtube.com/watch?v=hVimVzgtD6w) about the health and wealth of nations, and it **blew my mind**. I will probably try to get this chart to work as a time series at some later point in time and spend some more time mining this data for information. For now, it is a static chart and the sizes of the bubbles indicate the total population, the horizontal axis is the population growth rate and the vertical axis is the sex ratio (ratio of females to males in the population). The bubbles are color coded according to which continent they come from, except for Bangalore which has been marked a special color for easy identification. It's crazy how a single image can tell you so much about the world we live in.
 
 ```{r}

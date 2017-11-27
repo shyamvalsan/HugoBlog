@@ -17,6 +17,8 @@ tags:
   - growth rate
 ---
 
+This is part 3 of the Analyzing Bangalore - Population series. You might find [Part 1](https://shyamvalsan.com/blog/analyzing-bangalore-population-animated-choropleth-timeseries/), [Part 2](https://shyamvalsan.com/blog/analyzing-bangalore-population-slopegraph/) and [Part 4](https://shyamvalsan.com/blog/analyzing-bangalore-population-bubblecharts/) interesting as well.
+
 This is a simple smoothed line chart of population growth rate over time, and yet it is very revealing.
 
 ```{r}
