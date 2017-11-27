@@ -19,7 +19,7 @@ tags:
   - graph
 ---
 
-The first time I saw bubble charts of this sort was in Hans Rosling's Ted talk about the health and wealth of nations, and it **blew my mind**. I will probably try to get this chart to work as a time series at some later point in time and spend some more time mining this data for information. For now, it is a static chart and the sizes of the bubbles indicate the total population, the horizontal axis is the population growth rate and the vertical axis is the sex ratio (ratio of females to males in the population). The bubbles are color coded according to which continent they come from, except for Bangalore which has been marked a special color for easy identification. It's crazy how a single image can tell you so much about the world we live in.
+The first time I saw bubble charts of this sort was in [Hans Rosling's Ted talk](https://www.youtube.com/watch?v=hVimVzgtD6w) about the health and wealth of nations, and it **blew my mind**. I will probably try to get this chart to work as a time series at some later point in time and spend some more time mining this data for information. For now, it is a static chart and the sizes of the bubbles indicate the total population, the horizontal axis is the population growth rate and the vertical axis is the sex ratio (ratio of females to males in the population). The bubbles are color coded according to which continent they come from, except for Bangalore which has been marked a special color for easy identification. It's crazy how a single image can tell you so much about the world we live in.
 
 ```{r}
 suppressPackageStartupMessages(library(plotly))
@@ -73,3 +73,5 @@ p1
 **Data sources**
 
 [United Nations Top 30 Urban Agglomerations - Population and Growth Rate](https://esa.un.org/Unpd/Wup/CD-ROM/)
+
+*Suggestions and corrections are always welcome, please use the comments section.*

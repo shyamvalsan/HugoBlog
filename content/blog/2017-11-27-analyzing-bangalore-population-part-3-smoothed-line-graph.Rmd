@@ -50,3 +50,5 @@ ggplot(blr_growth_rate,aes(x = Time,y = GrowthRate )) +
 **Data sources**
 
 [United Nations Top 30 Urban Agglomerations - Population and Growth Rate](https://esa.un.org/Unpd/Wup/CD-ROM/)
+
+*Suggestions and corrections are always welcome, please use the comments section.*
