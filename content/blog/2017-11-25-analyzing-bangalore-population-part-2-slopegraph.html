@@ -26,11 +26,10 @@ tags:
 <li>Between 2011 and 2021 this sort of change is largely absent and consolidation of the change from the previous decade is prevalent</li>
 <li>Bellandur and Begur, were among the least populated wards in 2001 and just exploded in to the top 3 in ten years and are expected to stay there</li>
 </ul>
-<p><strong>How does the code work? </strong></p>
 <pre class="r"><code>library(RColorBrewer)
 library(scales)
 
-pop &lt;- read.csv(&quot;data/ward_popt.csv&quot;)
+pop &lt;- read.csv(&quot;ward_popt.csv&quot;)
 plot(c(0,1),c(0,1),type=&#39;n&#39;,axes=F,xlab=&#39;&#39;,ylab=&#39;&#39;) 
 
 pop[,1]&lt;-as.character(pop[,1]) 
@@ -70,11 +69,11 @@ for(val in 1:(length(columns)-1)){
     rowtxt &lt;- row.names(temp_plot[[2]])
     text(x_tmp[[2]],y_plot,rowtxt)
     heading&lt;-substitute(bold(x),list(x=names(temp_plot)[2]))
-    text(unique(x_tmp[[2]]),y.locs[2],heading)
+    text(unique(x_tmp[[2]]),y_plot[2],heading)
   } 
   
   heading&lt;-substitute(bold(x),list(x=names(temp_plot)[1]))  
-  text(unique(x_tmp[[1]]),y.locs[2],heading)
+  text(unique(x_tmp[[1]]),y_plot[2],heading)
   
   sort_names&lt;-match(row.names(temp_plot[[1]]),row.names(temp_plot[[2]]))
   line_width&lt;-temp_plot[[1]][,1]
@@ -84,6 +83,7 @@ for(val in 1:(length(columns)-1)){
   sort_colors&lt;-match(row.names(temp_plot[[2]]),row.names(temp_plot[[1]]))
   line_colors&lt;-line_colors[sort_colors]
 }</code></pre>
+<p><img src="/blog/2017-11-25-analyzing-bangalore-population-part-2-slopegraph_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <p><strong>Data sources</strong></p>
 <p><a href="http://bbmp.gov.in/documents/10180/460906/BBMPR_ward_master_BBMP+Restructuring+03-08-2015.pdf/">BBMP ward data</a></p>
 <p><strong>References</strong></p>
