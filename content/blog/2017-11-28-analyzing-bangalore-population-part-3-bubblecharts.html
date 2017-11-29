@@ -1,0 +1,78 @@
+---
+title: Analyzing Bangalore - Population (Part 3 - Bubblecharts)
+author: Shyam Valsan
+date: '2017-11-28'
+slug: analyzing-bangalore-population-bubblecharts
+categories:
+  - blog
+  - data exploration
+  - data science
+  - R
+tags:
+  - Bangalore
+  - bengaluru
+  - growth rate
+  - population
+  - R
+  - bubble
+  - chart
+  - graph
+---
+
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/plotly-binding/plotly.js"></script>
+<script src="/rmarkdown-libs/typedarray/typedarray.min.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="/rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
+<link href="/rmarkdown-libs/plotlyjs/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/plotlyjs/plotly-latest.min.js"></script>
+
+
+<p>This is the final part of the Analyzing Bangalore - Population series. You might find <a href="https://shyamvalsan.com/blog/analyzing-bangalore-population-animated-choropleth-timeseries/">Part 1</a>, <a href="https://shyamvalsan.com/blog/analyzing-bangalore-population-smoothed-line-graph/">Part 2</a> interesting as well.</p>
+<p>The first time I saw bubble charts of this sort was in <a href="https://www.youtube.com/watch?v=hVimVzgtD6w">Hans Rosling’s Ted talk</a> about the health and wealth of nations, and it <strong>blew my mind</strong>. I will probably try to get this chart to work as a time series at some later point in time and spend some more time mining this data for information. For now, it is a static chart and the sizes of the bubbles indicate the total population, the horizontal axis is the population growth rate and the vertical axis is the sex ratio (ratio of females to males in the population). The bubbles are color coded according to which continent they come from, except for Bangalore which has been marked a special color for easy identification. It’s crazy how a single image can tell you so much about the world we live in.</p>
+<p>This is an interactive chart that you can modify, and it’s running directly from the code written below, Rmarkdown FTW! try it out!</p>
+<pre class="r"><code>suppressPackageStartupMessages(library(plotly))
+
+data &lt;- read.csv(&quot;top30_pop.csv&quot;)
+
+data &lt;- data[order(data$continent, data$city),]
+slope &lt;- 2.666051223553066e-05
+data$size &lt;- sqrt(data$pop * slope)
+colors &lt;- c(&#39;#4AC6B7&#39;, &#39;#1972A4&#39;, &#39;#965F8A&#39;, &#39;#FF7070&#39;, &#39;#C61951&#39;)
+
+p1 &lt;- plot_ly(data, x = ~growthrate, y = ~sexratio, color = ~continent, size = ~size, colors = colors,
+             type = &#39;scatter&#39;, mode = &#39;markers&#39;, sizes = c(min(data$size), max(data$size)),
+             marker = list(symbol = &#39;circle&#39;, sizemode = &#39;radius&#39;,
+                           line = list(width = 2, color = &#39;#FFFFFF&#39;)),
+             text = ~paste(city, &#39;&lt;br&gt;Population:&#39;, pop, &#39;&lt;br&gt;Growth Rate:&#39;, growthrate,&#39;&lt;br&gt;Sex Ratio:&#39;, sexratio)) %&gt;%
+  layout(title = &#39;Male-Female Ratio vs Population Growth Rate - Top 30 Urban Agglomerations - 2015&#39;,
+         xaxis = list(title = &#39;Growth Rate&#39;,
+                      gridcolor = &#39;rgb(255, 255, 255)&#39;,
+                      range = c(0, 4.5),
+                      zerolinewidth = 1,
+                      ticklen = 1,
+                      gridwidth = 2),
+         yaxis = list(title = &#39;Males per thousand Females&#39;,
+                      gridcolor = &#39;rgb(255, 255, 255)&#39;,
+                      range = c(800, 1200),
+                      zerolinewidth = 1,
+                      ticklen = 5,
+                      gridwith = 2),
+         paper_bgcolor = &#39;rgb(243, 243, 243)&#39;,
+         plot_bgcolor = &#39;rgb(243, 243, 243)&#39;)
+p1</code></pre>
+<div id="7fae4ba03ad7" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="7fae4ba03ad7">{"x":{"visdat":{"7fae3e727a49":["function () ","plotlyVisDat"]},"cur_data":"7fae3e727a49","attrs":{"7fae3e727a49":{"x":{},"y":{},"mode":"markers","marker":{"symbol":"circle","sizemode":"radius","line":{"width":2,"color":"#FFFFFF"}},"text":{},"color":{},"size":{},"colors":["#4AC6B7","#1972A4","#965F8A","#FF7070","#C61951"],"alpha":1,"sizes":[16.2462017447696,31.8292234424619],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Male-Female Ratio vs Population Growth Rate - Top 30 Urban Agglomerations - 2015","xaxis":{"domain":[0,1],"title":"Growth Rate","gridcolor":"rgb(255, 255, 255)","range":[0,4.5],"zerolinewidth":1,"ticklen":1,"gridwidth":2},"yaxis":{"domain":[0,1],"title":"Males per thousand Females","gridcolor":"rgb(255, 255, 255)","range":[800,1200],"zerolinewidth":1,"ticklen":5,"gridwith":2},"paper_bgcolor":"rgb(243, 243, 243)","plot_bgcolor":"rgb(243, 243, 243)","hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":[{"name":"Collaborate","icon":{"width":1000,"ascent":500,"descent":-50,"path":"M487 375c7-10 9-23 5-36l-79-259c-3-12-11-23-22-31-11-8-22-12-35-12l-263 0c-15 0-29 5-43 15-13 10-23 23-28 37-5 13-5 25-1 37 0 0 0 3 1 7 1 5 1 8 1 11 0 2 0 4-1 6 0 3-1 5-1 6 1 2 2 4 3 6 1 2 2 4 4 6 2 3 4 5 5 7 5 7 9 16 13 26 4 10 7 19 9 26 0 2 0 5 0 9-1 4-1 6 0 8 0 2 2 5 4 8 3 3 5 5 5 7 4 6 8 15 12 26 4 11 7 19 7 26 1 1 0 4 0 9-1 4-1 7 0 8 1 2 3 5 6 8 4 4 6 6 6 7 4 5 8 13 13 24 4 11 7 20 7 28 1 1 0 4 0 7-1 3-1 6-1 7 0 2 1 4 3 6 1 1 3 4 5 6 2 3 3 5 5 6 1 2 3 5 4 9 2 3 3 7 5 10 1 3 2 6 4 10 2 4 4 7 6 9 2 3 4 5 7 7 3 2 7 3 11 3 3 0 8 0 13-1l0-1c7 2 12 2 14 2l218 0c14 0 25-5 32-16 8-10 10-23 6-37l-79-259c-7-22-13-37-20-43-7-7-19-10-37-10l-248 0c-5 0-9-2-11-5-2-3-2-7 0-12 4-13 18-20 41-20l264 0c5 0 10 2 16 5 5 3 8 6 10 11l85 282c2 5 2 10 2 17 7-3 13-7 17-13z m-304 0c-1-3-1-5 0-7 1-1 3-2 6-2l174 0c2 0 4 1 7 2 2 2 4 4 5 7l6 18c0 3 0 5-1 7-1 1-3 2-6 2l-173 0c-3 0-5-1-8-2-2-2-4-4-4-7z m-24-73c-1-3-1-5 0-7 2-2 3-2 6-2l174 0c2 0 5 0 7 2 3 2 4 4 5 7l6 18c1 2 0 5-1 6-1 2-3 3-5 3l-174 0c-3 0-5-1-7-3-3-1-4-4-5-6z"},"click":"function(gd) { \n        // is this being viewed in RStudio?\n        if (location.search == '?viewer_pane=1') {\n          alert('To learn about plotly for collaboration, visit:\\n https://cpsievert.github.io/plotly_book/plot-ly-for-collaboration.html');\n        } else {\n          window.open('https://cpsievert.github.io/plotly_book/plot-ly-for-collaboration.html', '_blank');\n        }\n      }"}],"cloud":false},"data":[{"x":[3.95,4.17],"y":[1005,970],"mode":"markers","marker":{"size":[17.5782631909356,18.7025645442052],"sizemode":"radius","fillcolor":"rgba(74,198,183,0.5)","color":"rgba(74,198,183,1)","symbol":"circle","line":{"width":2,"color":"#FFFFFF"}},"text":["Kinshasa <br>Population: 11590000 <br>Growth Rate: 3.95 <br>Sex Ratio: 1005","Lagos <br>Population: 13120000 <br>Growth Rate: 4.17 <br>Sex Ratio: 970"],"type":"scatter","name":"Africa","xaxis":"x","yaxis":"y","frame":null},{"x":[3.43,1.83,2.67,2.65,3.52,3.94,1.28,1.81,2.92,1.13,1.48,1.64,0.28,2.67,0.98,2.68,0.17],"y":[892,961,840,866,950,962,952,972,952,898,1000,922,931,917,926,961,975],"mode":"markers","marker":{"size":[23.3096812367762,22.3700204439091,18.8516478881721,26.1758507875702,21.6616023263594,18.2260797335772,19.4296899937985,16.587238657193,21.0498863026507,19.9041506178984,18.5810019495753,23.6841123421496,23.2294805720477,25.1579124823881,16.9292795632878,17.2876933730414,31.8292234424619],"sizemode":"radius","fillcolor":"rgba(41,130,168,0.5)","color":"rgba(41,130,168,1)","symbol":"circle","line":{"width":2,"color":"#FFFFFF"}},"text":["Beijing <br>Population: 20380000 <br>Growth Rate: 3.43 <br>Sex Ratio: 892","Cairo <br>Population: 18770000 <br>Growth Rate: 1.83 <br>Sex Ratio: 961","Chongqing <br>Population: 13330000 <br>Growth Rate: 2.67 <br>Sex Ratio: 840","Delhi <br>Population: 25700000 <br>Growth Rate: 2.65 <br>Sex Ratio: 866","Dhaka <br>Population: 17600000 <br>Growth Rate: 3.52 <br>Sex Ratio: 950","Guangzhou <br>Population: 12460000 <br>Growth Rate: 3.94 <br>Sex Ratio: 962","Istanbul <br>Population: 14160000 <br>Growth Rate: 1.28 <br>Sex Ratio: 952","Jakarta <br>Population: 10320000 <br>Growth Rate: 1.81 <br>Sex Ratio: 972","Karachi <br>Population: 16620000 <br>Growth Rate: 2.92 <br>Sex Ratio: 952","Kolkata <br>Population: 14860000 <br>Growth Rate: 1.13 <br>Sex Ratio: 898","Manila <br>Population: 12950000 <br>Growth Rate: 1.48 <br>Sex Ratio: 1000","Mumbai <br>Population: 21040000 <br>Growth Rate: 1.64 <br>Sex Ratio: 922","Osaka <br>Population: 20240000 <br>Growth Rate: 0.28 <br>Sex Ratio: 931","Shanghai <br>Population: 23740000 <br>Growth Rate: 2.67 <br>Sex Ratio: 917","Shenzhen <br>Population: 10750000 <br>Growth Rate: 0.98 <br>Sex Ratio: 926","Tianjin <br>Population: 11210000 <br>Growth Rate: 2.68 <br>Sex Ratio: 961","Tokyo <br>Population: 38000000 <br>Growth Rate: 0.17 <br>Sex Ratio: 975"],"type":"scatter","name":"Asia","xaxis":"x","yaxis":"y","frame":null},{"x":[3.2],"y":[908],"mode":"markers","marker":{"size":16.40135873812,"sizemode":"radius","fillcolor":"rgba(117,104,148,0.5)","color":"rgba(117,104,148,1)","symbol":"circle","line":{"width":2,"color":"#FFFFFF"}},"text":"Bangalore <br>Population: 10090000 <br>Growth Rate: 3.2 <br>Sex Ratio: 908","type":"scatter","name":"Bangalore","xaxis":"x","yaxis":"y","frame":null},{"x":[1.01,0.5,0.77],"y":[1052,1162,1041],"mode":"markers","marker":{"size":[16.5792002565962,18.0127297738685,16.9999986068574],"sizemode":"radius","fillcolor":"rgba(194,102,128,0.5)","color":"rgba(194,102,128,1)","symbol":"circle","line":{"width":2,"color":"#FFFFFF"}},"text":["London <br>Population: 10310000 <br>Growth Rate: 1.01 <br>Sex Ratio: 1052","Moscow <br>Population: 12170000 <br>Growth Rate: 0.5 <br>Sex Ratio: 1162","Paris <br>Population: 10840000 <br>Growth Rate: 0.77 <br>Sex Ratio: 1041"],"type":"scatter","name":"Europe","xaxis":"x","yaxis":"y","frame":null},{"x":[0.23,0.81,0.21],"y":[1020,940,940],"mode":"markers","marker":{"size":[18.1160400093227,23.6615882169001,22.2625003640318],"sizemode":"radius","fillcolor":"rgba(244,97,106,0.5)","color":"rgba(244,97,106,1)","symbol":"circle","line":{"width":2,"color":"#FFFFFF"}},"text":["Los Angeles <br>Population: 12310000 <br>Growth Rate: 0.23 <br>Sex Ratio: 1020","Mexico City <br>Population: 21000000 <br>Growth Rate: 0.81 <br>Sex Ratio: 940","New York <br>Population: 18590000 <br>Growth Rate: 0.21 <br>Sex Ratio: 940"],"type":"scatter","name":"North America","xaxis":"x","yaxis":"y","frame":null},{"x":[0.92,1.66,0.65,0.98],"y":[948,1001,1030,1085],"mode":"markers","marker":{"size":[20.1173202921104,16.2462017447696,18.5450965982479,23.7009913886029],"sizemode":"radius","fillcolor":"rgba(198,25,81,0.5)","color":"rgba(198,25,81,1)","symbol":"circle","line":{"width":2,"color":"#FFFFFF"}},"text":["Buenos Aires <br>Population: 15180000 <br>Growth Rate: 0.92 <br>Sex Ratio: 948","Lima <br>Population: 9900000 <br>Growth Rate: 1.66 <br>Sex Ratio: 1001","Rio de Janeiro <br>Population: 12900000 <br>Growth Rate: 0.65 <br>Sex Ratio: 1030","Sao Paulo <br>Population: 21070000 <br>Growth Rate: 0.98 <br>Sex Ratio: 1085"],"type":"scatter","name":"South America","xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1}},"base_url":"https://plot.ly"},"evals":["config.modeBarButtonsToAdd.0.click"],"jsHooks":{"render":[{"code":"function(el, x) { var ctConfig = crosstalk.var('plotlyCrosstalkOpts').set({\"on\":\"plotly_click\",\"persistent\":false,\"dynamic\":false,\"selectize\":false,\"opacityDim\":0.2,\"selected\":{\"opacity\":1}}); }","data":null}]}}</script>
+<p><strong>Key takeaways</strong></p>
+<ul>
+<li><p>Population growth is highest in the great African cities of Lagos and Kinshasa</p></li>
+<li><p>Africa is followed by a long list of large Asian cities, and it is in this huddle that Bangalore finds itself</p></li>
+<li><p>The largest city of them all is of course the megalopolis of Tokyo, where the growth rate has almost slowed to a standstill but it will continue to be the largest city in the world for at least another decade with Delhi hot on its heels (Having visited both cities, I really feel that Delhi has a lot to learn from Tokyo, and this is one case where our usual excuse about over population being the root of all our problems doesn’t make sense anymore)</p></li>
+<li><p>Europe, South and North America are all on the low side when it comes to population growth rate</p></li>
+<li><p>The sex ratio comparison is very interesting, with Moscow being the standout outlier with 1162 females to every 1000 males. This was a surprise to me, and I am not sure what the reason behind it is. I’ve read articles which claim that an early death for males due to a harsher lifestyle is what accounts for it, but I am not completely convinced.</p></li>
+<li><p>China and India form the other end of the pendulum with mega cities where the men outnumber the women by the millions. Patriarchal societies are the norm in the two most populous countries in the world, and male children live a more privileged life in most households across the country. Female infanticide has also been a real problem which the authorities and social workers have been working to remedy (with some success in recent years) in India.</p></li>
+</ul>
+<p><strong>Data sources</strong></p>
+<p><a href="https://esa.un.org/Unpd/Wup/CD-ROM/">United Nations Top 30 Urban Agglomerations - Population and Growth Rate</a></p>
+<p><em>Suggestions and corrections are always welcome, please use the comments section.</em></p>
