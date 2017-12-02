@@ -47,7 +47,7 @@ p1 <- plot_ly(data, x = ~growthrate, y = ~sexratio, color = ~continent, size = ~
                       zerolinewidth = 1,
                       ticklen = 1,
                       gridwidth = 2),
-         yaxis = list(title = 'Males per thousand Females',
+         yaxis = list(title = 'Females per thousand Males',
                       gridcolor = 'rgb(255, 255, 255)',
                       range = c(800, 1200),
                       zerolinewidth = 1,
