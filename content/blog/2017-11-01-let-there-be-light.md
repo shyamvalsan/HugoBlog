@@ -59,6 +59,9 @@ where command can have one of the following values:
     notify-blue - notification in blue color
     notify-green - notification in green color
     notify-red - notification in red color
+    brightness <level> - set brightness to <level> where <level> is an integer from 1 (dimmest) to 100 (brightest)
+    dim - dim brightness to level 10
+    undim - reset brightness to level 100
 ```
 
 ## Demo
