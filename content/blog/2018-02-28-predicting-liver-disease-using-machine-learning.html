@@ -170,7 +170,7 @@ test_pred &lt;- predict(xgbModel, newdata = fulldata)</code></pre>
 ##                                           
 ##        &#39;Positive&#39; Class : 0               
 ## </code></pre>
-<p>There’s a lot of data here to digest, and you can read up on what each individual field indicates. A high level summary would be that we get an accuracy of 88.51% and were able to succesfully predict liver disease 395 out 416 cases, of concern however is the fact that we had 46 false positives (where we incorrectly predicted liver disease in a healthy patient). The rest of the values indicate that the model is perforiming well overall, and that if we had more training data (especially for non-liver patients) we could increase the accuracy and reduce the false positives.</p>
+<p>There’s a lot of data here to digest, and you can read up on what each individual field indicates. A high level summary would be that we get an accuracy of <strong>88.51%</strong> and were able to succesfully predict liver disease 395 out 416 cases, of concern however is the fact that we had 46 false positives (where we incorrectly predicted liver disease in a healthy patient). The rest of the values indicate that the model is perforiming well overall, and that if we had more training data (especially for non-liver patients) we could increase the accuracy and reduce the false positives.</p>
 <p>Another interesting datapoint would be what feautres were the most important to our model when it made the prediction (or should we say diagnosis) of whether a patient has liver disease or not.</p>
 <pre class="r"><code>xgb.importance(colnames(fulldata), model = xgbModel)</code></pre>
 <pre><code>##                       Feature       Gain      Cover  Frequency
@@ -186,9 +186,11 @@ test_pred &lt;- predict(xgbModel, newdata = fulldata)</code></pre>
 <p>And there you have it, we were able to train a model to diagnose whether a patient has liver disease or not based on a set of available data points. Our model achieved an accuracy of 88.51% which is pretty good.</p>
 <p>The dataset we used was indeed limited, and to truly have a model which generalizes well we would need to collect much more data but the results we achieved are very promising indeed. And hospitals and health authorities would clearly have more of the data we require to make our model achieve (or even surpass) human-level diagnosis accuracy.</p>
 <p>Comments and suggestions are welcome - and if anyone has interesting data that they’d like to collaborate on, please hit me up on twitter <span class="citation">@shyamvalsan</span> or email <a href="mailto:shyam.valsan@gmail.com">shyam.valsan@gmail.com</a></p>
-<p>**Acknowledgements</p>
+<div id="acknowledgements" class="section level4">
+<h4>Acknowledgements</h4>
 <p>This dataset was downloaded from the UCI ML Repository:</p>
-<p>Lichman, M. (2013). UCI Machine Learning Repository [<a href="http://archive.ics.uci.edu/ml" class="uri">http://archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science.</p>
-<p>The XGBoost library is used for training the prediction model [<a href="https://github.com/dmlc/xgboost" class="uri">https://github.com/dmlc/xgboost</a>]</p>
-<p>**This analysis was published as a Kaggle kernel [<a href="https://www.kaggle.com/shyamvalsan/predicting-liver-disease-using-xgboost" class="uri">https://www.kaggle.com/shyamvalsan/predicting-liver-disease-using-xgboost</a>]</p>
+<p>Lichman, M. (2013). <a href="http://archive.ics.uci.edu/ml">UCI Machine Learning Repository</a>. Irvine, CA: University of California, School of Information and Computer Science.</p>
+<p>The <a href="https://github.com/dmlc/xgboost">XGBoost</a> library is used for training the prediction model</p>
+<p><strong>This analysis was published as a <a href="https://www.kaggle.com/shyamvalsan/predicting-liver-disease-using-xgboost">Kaggle kernel</a></strong></p>
+</div>
 </div>
