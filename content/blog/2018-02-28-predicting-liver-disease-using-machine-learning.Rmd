@@ -1,5 +1,5 @@
 ---
-title: "Predicting Liver Disease Using Machine Learning"
+title: "Predicting liver disease using machine learning"
 author: "Shyam Valsan"
 date: '2018-02-28'
 slug: predicting-liver-disease-machine-learning
