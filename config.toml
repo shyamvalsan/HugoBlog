@@ -24,19 +24,19 @@ url                    = "/about/"
 
 [[menu.main]]
 name                   = "Art"
-weight                 = -100
+weight                 = -110
 identifier             = "art"
 url                    = "/art/"
 
 [[menu.main]]
 name                   = "Blog"
-weight                 = -110
+weight                 = -100
 identifier             = "blog"
 url                    = "/blog/"
 
 [[menu.main]]
 name                   = "Contact"
-weight                 = -100
+weight                 = -90
 identifier             = "contact"
 url                    = "/contact/"
 
