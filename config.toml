@@ -23,16 +23,16 @@ identifier             = "about"
 url                    = "/about/"
 
 [[menu.main]]
-name                   = "Blog"
-weight                 = -110
-identifier             = "blog"
-url                    = "/blog/"
-
-[[menu.main]]
 name                   = "Art"
 weight                 = -100
 identifier             = "art"
 url                    = "/art/"
+
+[[menu.main]]
+name                   = "Blog"
+weight                 = -110
+identifier             = "blog"
+url                    = "/blog/"
 
 [[menu.main]]
 name                   = "Contact"
