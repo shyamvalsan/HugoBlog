@@ -28,11 +28,11 @@ weight                 = -110
 identifier             = "blog"
 url                    = "/blog/"
 
-#[[menu.main]]
-#name                   = "Projects"
-#weight                 = -100
-#identifier             = "projects"
-#url                    = "/projects/"
+[[menu.main]]
+name                   = "Art"
+weight                 = -100
+identifier             = "art"
+url                    = "/art/"
 
 [[menu.main]]
 name                   = "Contact"
