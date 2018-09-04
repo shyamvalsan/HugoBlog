@@ -1,0 +1,26 @@
+---
+title: "Ghost in the machine - Art in the age of AI"
+author: "Shyam Valsan"
+date: '2018-09-04'
+slug: art-in-the-age-of-ai
+tags:
+- art
+- R
+- machine learning
+- AI
+- neural networks
+- generative art
+- artist
+- turing test
+- GAN
+- neural style transfer
+- math
+- crypto
+- cryptoart
+categories:
+- art
+- AI
+- machine learning
+---
+
+"Every child is an artist until he’s told he’s not an artist."
