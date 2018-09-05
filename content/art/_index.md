@@ -4,4 +4,4 @@ draft = false
 title = "Art"
 
 +++
-Work in progress
+https://superrare.co/egorulz
