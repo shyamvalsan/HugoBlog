@@ -32,7 +32,7 @@ url                    = "/blog/"
 name                   = "Art"
 weight                 = -100
 identifier             = "art"
-url                    = "/art/"
+url                    = "https://egorulz.wixsite.com/digitalart/"
 
 [[menu.main]]
 name                   = "Travel"
