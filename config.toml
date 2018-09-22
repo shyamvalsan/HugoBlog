@@ -37,7 +37,7 @@ url                    = "/art/"
 [[menu.main]]
 name                   = "Travel"
 weight                 = -90
-identifier             = "art"
+identifier             = "travel"
 url                    = "https://travelverse.blogspot.com/"
 
 
