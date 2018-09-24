@@ -11,6 +11,7 @@ I am a computer science graduate who has worked as a software engineer and a var
 When I'm not at work, I travel, I read, I write, I paint and I experiment with data. 
 
 -- 
+
 This blog is built with Rstudio, blogdown and Hugo (using the cocoa theme), it is maintained in Git, and deployed using Netlify. The posts are written in Markdown or RMarkdown.
 
 All articles posted on this blog are released under a Creative Commons Attribution-ShareAlike 4.0 International License.
