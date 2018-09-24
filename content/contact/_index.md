@@ -4,7 +4,6 @@ draft = false
 title = "Contact"
 
 +++
-Thanks for wanting to get in touch with me!
 You can reach out to me through any of the following communication channels. I am usually prompt with my replies.
 
 E-mail: [shyam.valsan@gmail.com](mailto:shyam.valsan@gmail.com)
