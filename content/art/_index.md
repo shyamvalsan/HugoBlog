@@ -16,7 +16,9 @@ My current focus is on generative amd AI assisted art.
 <img src="Newton's Fern.png" width="200" height="200" />
 
 
-More of my work is available for collection at:
+You can see more of my work at:
+
+https://www.instagram.com/shyamvalsan/
 
 https://superrare.co/egorulz
 
