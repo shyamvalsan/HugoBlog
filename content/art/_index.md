@@ -14,7 +14,6 @@ My current focus is on generative amd AI assisted art.
 <img src="Doorway.PNG" width="200" height="200" />
 <img src="Venus Rising.png" width="200" height="200" />
 <img src="Newton's Fern.png" width="200" height="200" />
-<img src="Forest.png" width="200" height="200" />
 
 
 More of my work is available for collection at:
