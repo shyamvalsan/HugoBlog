@@ -6,13 +6,15 @@ title = "About"
 +++
 I'm Shyam Sreevalsan and this is my personal website. 
 
-I am a computer science graduate who has worked as a software engineer and a variety of other roles in the software industry. I specialize in building intelligent networks and for some time now, I've been working on applying machine learning to computer networks and other problems I'm trying to solve.
+I am a technology consultant who has worked in a variety of different roles in the software industry. I specialize in building intelligent networks and applying machine learning to solve hard problems in computer networks and telecommunications.
 
 When I'm not at work, I travel, I read, I write, I paint and I experiment with data. 
 
+My art is influenced by nature and culture heritage from around the world. I specialize in generative abstracts, data paintings and experiments in human-machine collaboration where the workflow involves alternating layers of human and computer generated artistic expression. 
+
 -- 
 
-This blog is built with Rstudio, blogdown and Hugo (using the cocoa theme), it is maintained in Git, and deployed using Netlify. The posts are written in Markdown or RMarkdown.
+This blog is built with Rstudio, blogdown and Hugo. It is maintained in Git and deployed using Netlify. 
 
 All articles posted on this blog are released under a Creative Commons Attribution-ShareAlike 4.0 International License.
 
