@@ -9,7 +9,7 @@ title = "Art"
 
 I like working with different media and not being bound by rules. I try to avoid stereotypes and pigeon holes of all kinds. 
 
-My current focus is on generative amd AI assisted art.
+My current focus is on generative and AI assisted art.
 
 <img src="Doorway.PNG" width="200" height="200" />
 <img src="Venus Rising.png" width="200" height="200" />
