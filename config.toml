@@ -38,7 +38,7 @@ url                    = "/art/"
 name                   = "Travel"
 weight                 = -90
 identifier             = "travel"
-url                    = "https://travelverse.blogspot.com/"
+url                    = "/travel/"
 
 
 [[menu.main]]
