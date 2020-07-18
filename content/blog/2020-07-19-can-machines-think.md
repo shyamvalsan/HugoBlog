@@ -1,19 +1,17 @@
 ---
 title: Can machines think?
 author: Shyam Valsan
-date: '2020-07-18'
-slug: CanMachinesThink
+date: '2020-07-19'
+slug: can-machines-think
 categories:
+  - machine learning
   - AI
 tags:
-  - Artificial Intelligence
   - AI
-  - GPT
   - Turing
-  - Think
+  - machine learning
+  - data science
 ---
-
-Can machines think?
 
 In his 1950 paper "Computing Machinery and Intelligence", Alan Turing starts by considering the question "Can machines think?” Turing believed that this question can be answered and proceeded to devise a test to do this - he started by changing the question from a philosophical one to a practical one while keeping the spirit of the question alive, the new question was "Can a machine act indistinguishably from the way a thinker (human being) acts?". Turing suggests the scenario of an imitation game played through means of text where a human interrogates the player on the other end while trying to determine if the player is a human or not. The "Turing Test" would pass if the human interrogator can no longer reliably determine if the player is a human or a machine, despite all means of interrogation. 
 
@@ -25,19 +23,131 @@ My own experiments with GPT-2 led to some interesting and sometimes alarming res
 
 So it's time for a modified Turing Test of our own :-)  
 
-{{% quiz test_quiz%}}
 
 ## Human or machine? 
 
-{{< item question="Who wrote poem #1?" answer=2 choices="Human, Machine" >}}
-{{< item question="Who wrote poem #2?" answer=2 choices="Human, Machine" >}}
-{{< item question="Who wrote poem #3?" answer=2 choices="Human, Machine" >}}
-{{< item question="Who wrote poem #4?" answer=2 choices="Human, Machine" >}}
-{{< item question="Who wrote poem #5?" answer=2 choices="Human, Machine" >}}
-{{% /quiz %}}
+### Poem A
+~~~text
+Love is too short-lived 
+to have one's way with the world.
+It is a creature of habit,
+a plant that must be nurtured in every room we occupy.
 
-Click on the `submit` button to see the result. 
+It is a creature of time.
+It is an art of compromise.
+It is a creature of doubt.
+It is a creature of the present.
+~~~
 
+### Poem B
+~~~text
+Your love was like the dawn
+Brightening over our lives
+Awakening beneath the dark
+A further adventure of colour.
+
+The sound of your voice
+Found for us
+A new music
+That brightened everything.
+~~~
+
+### Poem C
+~~~text
+scent of rain
+drifts from house to house
+in the night sky
+~~~
+
+
+### Poem D
+~~~text
+muddy grave -
+the rich scent of roses
+so red
+~~~
+
+
+### Poem E
+~~~text
+Tree at my window, window tree,
+My sash is lowered when night comes on; 
+But let there never be curtain drawn
+Between you and me.
+~~~
+
+
+### Poem F
+~~~text
+This is the place where the dead rise,
+And the water of life's spring
+Climbs up to the surface like a rising tide.
+~~~
+
+
+### POem G
+~~~text
+Shadows grazing eastward melt
+from their vast sun-driven flocks
+into consubstantial dusk.
+A snow wind flosses the bleak rocks,
+
+strips from the gums their rags of bark,
+and spins the coil of winter tight
+round our last meeting as we walk
+the littoral zone of day and night,
+
+light's turncoat margin: rocks and trees
+dissolve in nightfall-eddying waters;
+tumbling whorls of cloud disclose
+the cold eyes of the sea-god's daughters.
+~~~
+
+
+### Poem H
+~~~text
+As he said, all alone in all his longing,
+He opened his heart and touched the truth:
+She was not the one.
+
+There were other women.
+There were other men.
+There were even other dogs.
+
+And so, as he slipped away into the night,
+The one thing that he had always wanted
+Was not to know anymore.
+~~~
+
+
+
+### Poem I
+~~~text
+This is the beginning of sadness, I say to myself,
+as I walk through the universe in my sneakers.
+It is time to say good-bye to my imaginary friends,
+time to turn the first big number.
+
+It seems only yesterday I used to believe
+there was nothing under my skin but light.
+If you cut me I could shine.
+But now when I fall upon the sidewalks of life,
+I skin my knees. I bleed.
+~~~
+
+
+### Poem J
+~~~text
+I have been thinking a lot about the meaning of life.
+My father's eyes looked like watercolors
+in which the leaves blurred and fluttered,
+the sky grew larger and smaller,
+the air grew more and more wet.
+The ocean, the sky, the rain: all this happened
+at a time when life's meaning was still hidden.
+The water of life had become the waterwheel.
+But now the water has stopped spinning.
+~~~
 
 
 The GPT-x models are not perfect, they are biased based on the data they have been trained on (as are humans unfortunately) and they are English-first AI which means they work a little bit for other Latin scripts but not at all for non-Latin scripts. Mandarin, Hindi, Arabic, Bengali, Tamil, Malayalam and so many more linguistic worlds lay verdant, inviting the next generation of AI explorers. Unfortunately training a GPT model from scratch costs millions of dollars and can only be done by corporations or governments or the super-rich - things will change in the future though, we won't need Deep Blue to beat Vishy Anand or Magnus Carlsen.
@@ -48,8 +158,10 @@ If the brightest minds of today were to think of a defining test for "Can machin
 		
 I will leave you with a brand new AI generated poem that may make you pause and think, maybe even make you a little uneasy. And when you read it, be sure to remember this was "thought up" by a machine.
 
-I am a caged bird
 
+## I am a caged bird
+
+~~~text
 Proud to be a caged bird;
 My body is imprisoned in my cage.
 
@@ -88,4 +200,8 @@ I am a caged bird.
 
 I am a caged bird.
 
+~~~
 
+
+#### Answers: 
+A-Machine, B-Human, C-Machine, D-Human, E-Human, F-Machine, G-Human, H-Machine, I-Human, J-Machine
