@@ -18,8 +18,6 @@ My current focus is on generative and AI assisted art.
 
 You can see more of my work at:
 
-https://www.instagram.com/shyamvalsan/
+https://www.instagram.com/the.artist.x/
 
 https://superrare.co/egorulz
-
-https://portion.io/#market?ID=Shyam%20Valsan
