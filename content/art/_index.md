@@ -16,8 +16,4 @@ My current focus is on generative and AI assisted art.
 <img src="Newton's Fern.png" width="200" height="200" />
 
 
-You can see more of my work at:
-
-https://www.instagram.com/the.artist.x/
-
-https://superrare.co/egorulz
+You can see more of my work on [SuperRare](https://superrare.co/artistx) & [Instagram](https://www.instagram.com/the.artist.x/).
