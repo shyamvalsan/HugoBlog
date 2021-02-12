@@ -16,10 +16,4 @@ My current focus is on generative and AI assisted art.
 <img src="Newton's Fern.png" width="200" height="200" />
 
 
-You can see more of my work at:
-
-https://www.instagram.com/shyamvalsan/
-
-https://superrare.co/egorulz
-
-https://portion.io/#market?ID=Shyam%20Valsan
+You can see more of my work on [SuperRare](https://superrare.co/artistx) & [Instagram](https://www.instagram.com/the.artist.x/).
