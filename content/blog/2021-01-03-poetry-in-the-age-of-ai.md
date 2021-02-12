@@ -16,7 +16,7 @@ tags:
   - poetry
 ---
 
-A few months ago I wrote a post wondering whether machines could think. But delving into the definition of "thought" is a rabbit hole if there ever was one. So we decided to take shorter steps and started with an experiment to answer these questions.
+A few months ago I wrote a post wondering whether machines could think. But delving into the definition of "thought" is a rabbit hole if there ever was one. So we decided to take shorter steps and started with an experiment to answer these questions. 
 
 > Can a machine write good poetry?
 
