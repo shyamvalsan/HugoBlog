@@ -23,10 +23,10 @@ identifier             = "about"
 url                    = "/about/"
 
 [[menu.main]]
-name                   = "Blog"
+name                   = "Writing"
 weight                 = -110
 identifier             = "blog"
-url                    = "/blog/"
+url                    = "https://dayafter.substack.com/"
 
 [[menu.main]]
 name                   = "Art"
