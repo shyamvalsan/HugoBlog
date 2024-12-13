@@ -8,4 +8,4 @@ categories:
 tags:
   - blog
 ---
-Read the full article at [https://dayafter.substack.com/p/the-writing-is-on-the-wall](https://dayafter.substack.com/p/the-writing-is-on-the-wall)
+Read the article at [https://dayafter.substack.com/p/the-writing-is-on-the-wall](https://dayafter.substack.com/p/the-writing-is-on-the-wall)
